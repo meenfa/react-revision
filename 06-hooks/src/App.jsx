@@ -1,17 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useState } from "react";
+// batch updating
 
-function App() {
-  const [count, setCount] = useState(0);
+// React doesn't re-render after every setState.
 
+// <Instead:></Instead:>
+// setNum(...)
+// setNum(...)
+// setNum(...)
+
+// React collects them and performs a single re-render.
+
+// This is called batching.
+
+const App = () => {
+  const [num, setNum] = useState(10);
+
+  const btnClicked = () => {
+    setNum(num + 10);
+    setNum((prev) => prev + 2);
+    // setNum((prev) => prev + 1);
+    // setNum((prev) => prev + 1);
+  };
   return (
     <div>
-      <h2>this is hook part learning for react</h2>
-      <h2>This is hook part learnig for react learning</h2>
+      <h3>{num}</h3>
+      <button onClick={btnClicked}>change num</button>
     </div>
   );
-}
+};
 
 export default App;
