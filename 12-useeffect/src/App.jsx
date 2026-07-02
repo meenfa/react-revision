@@ -23,6 +23,7 @@ const App = () => {
     // this [a] is the dependencies
     // al;so []-> empty array = runs only once when the page loads
   );
+
   return (
     <div>
       <h1>A is {a}</h1>
